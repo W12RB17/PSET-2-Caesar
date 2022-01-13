@@ -33,14 +33,27 @@ int main(int argc, string argv[])
     for (int i = 0, n = strlen(plaintext); i < n; i++)
     {
         int ciphertext = plaintext[i] + key;
-
-        if (ciphertext > 122)
+        if (plaintext[i] <= 122 && plaintext[i] >= 97)
         {
-            printf("%c", (ciphertext % 122) + 96);
+            if (ciphertext > 122)
+            {
+                printf("%c", (ciphertext % 122) + 96);
+            }
+            else
+            {
+                printf("%c", ciphertext);    
+            }
         }
-        else
+        else if (plaintext[i] <= 90 && plaintext[i] >= 65)
         {
-            printf("%c", ciphertext);    
+            if (ciphertext > 90)
+            {
+                printf("%c", (ciphertext % 90) + 64);
+            }
+            else
+            {
+                printf("%c", ciphertext);    
+            }
         }
     }
     printf("\n");
