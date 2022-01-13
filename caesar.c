@@ -24,14 +24,24 @@ int main(int argc, string argv[])
             }   
         }
     }
-    int key = atoi(argv[1]);
+    int int_key = atoi(argv[1]);
+    int key = int_key % 26;
     
     string plaintext = get_string("Plaintext:  ");
     printf("ciphertext: ");
     
     for (int i = 0, n = strlen(plaintext); i < n; i++)
     {
-        printf("%c", plaintext[i] + key);
+        int ciphertext = plaintext[i] + key;
+
+        if (ciphertext > 122)
+        {
+            printf("%c", (ciphertext % 122) + 96);
+        }
+        else
+        {
+            printf("%c", ciphertext);    
+        }
     }
     printf("\n");
 }
