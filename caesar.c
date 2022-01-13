@@ -55,6 +55,11 @@ int main(int argc, string argv[])
                 printf("%c", ciphertext);    
             }
         }
+        else
+        {
+            printf("%c", plaintext[i]);
+        }
     }
     printf("\n");
+    return 0;
 }
